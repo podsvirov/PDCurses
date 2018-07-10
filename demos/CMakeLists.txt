@@ -1,0 +1,7 @@
+foreach(DEMO ${DEMOS})
+    add_executable(${DEMO} ${DEMO}.c)
+    target_link_libraries(${DEMO} PRIVATE PDC${${PROJECT_NAME}_PLATFORM})
+    if(${DEMO} STREQUAL "tuidemo")
+        target_sources(${DEMO} PRIVATE tui.c)
+    endif()
+endforeach()
